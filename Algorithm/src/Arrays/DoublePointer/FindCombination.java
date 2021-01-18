@@ -1,7 +1,6 @@
 package Arrays.DoublePointer;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
