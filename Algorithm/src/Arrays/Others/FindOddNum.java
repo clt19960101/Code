@@ -14,8 +14,8 @@ public class FindOddNum {
         int[] arr_1 = {1, 3, 4, 3, 4, 6, 6, 6, 6, 7, 7};
         //两个数出现奇数次
         //异或运算与顺序无关
-        int[] arr_2 = {1, 3, 4, 3, 4, 6, 6, 6, 6, 7, 7, 7};
-        System.out.println(FindOddNum_1(arr_1));
+        int[] arr_2 = {1, 3, 3, 7, 7, 7};
+//        System.out.println(FindOddNum_1(arr_1));
         FindOddNum_2(arr_2);
         //提取一个int类型的值最右侧的1来10:1010
         FindOddNum_3(10);
