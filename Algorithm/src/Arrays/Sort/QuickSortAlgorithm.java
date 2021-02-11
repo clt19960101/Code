@@ -11,9 +11,9 @@ package Arrays.Sort;
 public class QuickSortAlgorithm {
     public static void main(String[] args) {
         int[] array = {8, 1, 4, 9, 6, 3, 5, 2, 7, 0};
-        int[] ints = quickSort(array, 0, array.length-1);
+        int[] ints = quickSort(array, 0, array.length - 1);
         for (int anInt : ints) {
-            System.out.print(anInt+",");
+            System.out.print(anInt + ",");
         }
 
     }
@@ -25,38 +25,40 @@ public class QuickSortAlgorithm {
         }
         //枢纽元选择
         int pivot = getPivot(array, left, right);
-        int i = left,j=right-1;
-            while (array[++left]<pivot){}
-            while (array[--right]>pivot){}
-            if (i < j) {
-                swap(array, left, right);
-            } else {
-                return array;
-            }
+        int i = left, j = right - 1;
+        while (array[++i] < pivot) {
+        }
+        while (array[--j] > pivot) {
+        }
+        if (i < j) {
+            swap(array, i, j);
+        } else {
+            return array;
+        }
         //交换枢纽元和i所指元素
-        swap(array,i, right-1);
+        swap(array, i, right);
         quickSort(array, left, i - 1);
-        quickSort(array, i+1,right);
+        quickSort(array, i + 1, right);
         return array;
     }
 
     //三数中值分割法
     private static int getPivot(int[] array, int left, int right) {
-        int center = (left + right) / 2;
+        int center = (array[left] + array[right]) / 2;
         if (array[left] > array[center]) {
-            swap(array,array[left], array[center]);
+            swap(array, array[left], array[center]);
         }
         if (array[left] > array[right]) {
-            swap(array,array[left], array[right]);
+            swap(array, array[left], array[right]);
         }
         if (array[center] > array[right]) {
-            swap(array,array[center], array[right]);
+            swap(array, array[center], array[right]);
         }
-        swap(array,array[center], array[right - 1]);
+        swap(array, array[center], array[right - 1]);
         return array[right - 1];
     }
 
-    private static void swap(int[]arr,int i, int j) {
+    private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
