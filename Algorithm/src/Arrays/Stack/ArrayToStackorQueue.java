@@ -9,6 +9,18 @@ package Arrays.Stack;
  */
 
 public class ArrayToStackorQueue {
+    public static void main(String[] args) {
+        MyStack myStack = new MyStack(3);
+        myStack.push(2);
+        myStack.push(3);
+        myStack.push(5);
+        myStack.push(2);
+        System.out.println(myStack.pop());
+        System.out.println(myStack.pop());
+        System.out.println(myStack.pop());
+        System.out.println(myStack.pop());
+    }
+
     public static class MyStack {
         private final int limit;
         private int index;
@@ -41,8 +53,8 @@ public class ArrayToStackorQueue {
     }
 
     public static class MyQueue {
-        private int[] arr;
         private final int limit;
+        private int[] arr;
         //待放元素当前的索引
         private int putIndex;
         //待取元素当前的索引
@@ -83,18 +95,6 @@ public class ArrayToStackorQueue {
             return i < limit - 1 ? i + 1 : 0;
         }
 
-    }
-
-    public static void main(String[] args) {
-        MyStack myStack = new MyStack(3);
-        myStack.push(2);
-        myStack.push(3);
-        myStack.push(5);
-        myStack.push(2);
-        System.out.println(myStack.pop());
-        System.out.println(myStack.pop());
-        System.out.println(myStack.pop());
-        System.out.println(myStack.pop());
     }
 
 

@@ -1,7 +1,5 @@
 package List;
 
-import java.util.Stack;
-
 /**
  * @ClassName DoubleNodeToStackOrQueue
  * @Description 双向链表实现栈和队列

@@ -9,9 +9,10 @@ package List;
  */
 
 public class DoubleNode {
-    private int value;
     DoubleNode next;
     DoubleNode last;
+    private int value;
+
     public DoubleNode(int data) {
         value = data;
     }

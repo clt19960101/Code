@@ -25,7 +25,7 @@ public class InsertSort {
             //每次跟前一个数对比，若小于前一个数则交换
             //注意j--
             for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
-                swap(arr,j,j+1);
+                swap(arr, j, j + 1);
             }
         }
 

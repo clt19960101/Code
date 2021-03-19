@@ -27,6 +27,7 @@ public class TwoStackToQueue {
         pushStackToPopStack();
 
     }
+
     //队列的poll方法
     public int poll() {
         if (popStack.isEmpty() && pushStack.isEmpty()) {
@@ -36,6 +37,7 @@ public class TwoStackToQueue {
         pushStackToPopStack();
         return pushStack.pop();
     }
+
     public int peek() {
         if (popStack.isEmpty() && pushStack.isEmpty()) {
             throw new RuntimeException("queue is empty!");
@@ -43,6 +45,7 @@ public class TwoStackToQueue {
         pushStackToPopStack();
         return popStack.peek();
     }
+
     //从压入栈向弹出栈导数据
     //1.popStack必须为空时才能导数据
     //2.若要从pushStack中导数据，必须一次性导完

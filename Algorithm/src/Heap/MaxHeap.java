@@ -45,12 +45,12 @@ public class MaxHeap {
     }
 
     /**
+     * @return void
      * @Author Langtao
      * @Description 已知一个几乎有序的数组。几乎有序是指，如果把数组排好序的话，每个元素移动的距离一定不超过K,
      * 并且K相对于数组长度来说是比较小的。
      * @Date 23:36 2021/2/23
      * @Param [arr, k]
-     * @return void
      */
     private static void sortArrDisLessK(int[] arr, int k) {
         //默认小根堆
@@ -62,18 +62,18 @@ public class MaxHeap {
         }
         int i = 0;
         for (; index < arr.length; i++, index++) {
-            arr[i] = (int)heap.poll();
+            arr[i] = (int) heap.poll();
             heap.add(arr[index]);
         }
         while (!heap.isEmpty()) {
-            arr[i++] = (int)heap.poll();
+            arr[i++] = (int) heap.poll();
         }
 
     }
 
     public static class MyMaxHeap {
-        private int[] heap;
         private final int limit;
+        private int[] heap;
         //heapSize 即是heap元素的个数，也是新增元素应放置的位置
         private int heapSize;
 

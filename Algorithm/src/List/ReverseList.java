@@ -13,12 +13,12 @@ public class ReverseList {
         Node node1 = new Node(1);
         Node node2 = new Node(2);
         Node node3 = new Node(3);
-        node1.next=node2;
+        node1.next = node2;
         node2.next = node3;
         DoubleNode doubleNode1 = new DoubleNode(1);
         DoubleNode doubleNode2 = new DoubleNode(2);
         DoubleNode doubleNode3 = new DoubleNode(3);
-        doubleNode1.next=doubleNode2;
+        doubleNode1.next = doubleNode2;
         doubleNode2.last = doubleNode1;
         doubleNode2.next = doubleNode3;
         doubleNode3.last = doubleNode2;
@@ -37,16 +37,23 @@ public class ReverseList {
         }
     }
 
+    /**
+     * 在遍历链表时，将当前节点的 next 指针改为指向前一个节点。由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。
+     * 在更改引用之前，还需要存储后一个节点。最后返回新的头引用
+     */
     public static Node doReverseLinkedList(Node head) {
+        //当前节点前一个节点
         Node pre = null;
-        Node next = null;
-        while (head != null) {
+        //当前节点
+        Node curr = head;
+        while (curr != null) {
             //记录当前节点的下一个节点
-            next = head.next;
-            head.next = pre;
-            pre = head;
+            Node next = curr.next;
+            //调转方向
+            curr.next = pre;
+            pre = curr;
             //头节点指向下一个节点
-            head = next;
+            curr = next;
         }
         return pre;
     }

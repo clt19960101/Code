@@ -13,22 +13,22 @@ public class GetStringMaxLength {
 
     private static int getMaxCount(char[] chars) {
         int Count = 0;
-        int MaxCount=0;
+        int MaxCount = 0;
         //ÂıÖ¸Õë
         int j = 0;
         for (int i = 0; i < chars.length; i++) {
-            if (chars[i] ==' ') {
-                j=i;
+            if (chars[i] == ' ') {
+                j = i;
                 continue;
             }
             if (chars[i] != chars[j]) {
-                j=i;
+                j = i;
                 i--;
                 Count = 0;
             } else {
                 Count++;
             }
-            MaxCount = Math.max(Count,MaxCount);
+            MaxCount = Math.max(Count, MaxCount);
         }
         return MaxCount;
     }

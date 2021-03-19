@@ -13,24 +13,6 @@ package LeetCode;
  * @Version 1.0
  */
 public class AddTwoNumbers {
-    //链表定义
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public static void main(String[] args) {
         ListNode head1 = new ListNode(2);
         ListNode tail1 = new ListNode(3);
@@ -73,5 +55,23 @@ public class AddTwoNumbers {
             tail.next = new ListNode(carry);
         }
         return head;
+    }
+
+    //链表定义
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }

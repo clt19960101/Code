@@ -10,7 +10,7 @@ package Arrays.Sort;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{1,3,4,2,5};
+        int[] arr = new int[]{1, 3, 4, 2, 5};
         //递归方法
         doMergeSort1(arr, 0, arr.length - 1);
         //非递归方法

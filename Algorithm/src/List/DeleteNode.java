@@ -15,7 +15,7 @@ public class DeleteNode {
         Node node3 = new Node(3);
         Node node4 = new Node(2);
         Node node5 = new Node(1);
-        node1.next=node2;
+        node1.next = node2;
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
@@ -39,13 +39,12 @@ public class DeleteNode {
         while (cur != null) {
             if (cur.getValue() == num) {
                 pre.next = cur.next;
-            }else {
+            } else {
                 pre = cur;
             }
             cur = cur.next;
         }
         return head;
-
 
 
     }

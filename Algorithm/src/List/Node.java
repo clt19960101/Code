@@ -9,8 +9,8 @@ package List;
  */
 
 public class Node {
-    private int value;
     Node next;
+    private int value;
 
     public Node(int data) {
         this.value = data;

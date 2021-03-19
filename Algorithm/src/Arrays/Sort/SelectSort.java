@@ -13,7 +13,7 @@ public class SelectSort {
         int[] arr = {85, 8, 54, 3, 23};
         doSelect(arr);
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]+",");
+            System.out.print(arr[i] + ",");
         }
     }
 
@@ -21,19 +21,19 @@ public class SelectSort {
         if (arr == null || arr.length < 2) {
             return;
         }
-        for (int i = 0; i < arr.length-1; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
-            for (int i1 = i+1; i1 < arr.length; i1++) {
+            for (int i1 = i + 1; i1 < arr.length; i1++) {
                 minIndex = arr[minIndex] > arr[i1] ? i1 : minIndex;
             }
-            swap(arr,i, minIndex);
+            swap(arr, i, minIndex);
         }
     }
 
     private static void swap(int[] arr, int i, int i1) {
         int temp = arr[i];
         arr[i] = arr[i1];
-        arr[i1]=temp;
+        arr[i1] = temp;
     }
 
 }

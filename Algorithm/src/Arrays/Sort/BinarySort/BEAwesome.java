@@ -10,7 +10,7 @@ package Arrays.Sort.BinarySort;
 
 public class BEAwesome {
     public static void main(String[] args) {
-        int[] arr = {43,42,6,86,34,78,5,3,86,4,8};
+        int[] arr = {43, 42, 6, 86, 34, 78, 5, 3, 86, 4, 8};
         System.out.println(doBEAwesome(arr));
 
     }

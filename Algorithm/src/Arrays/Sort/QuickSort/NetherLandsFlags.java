@@ -12,7 +12,7 @@ public class NetherLandsFlags {
         int[] arr = new int[]{2, 3, 6, 4, 2, 3, 5};
         int[] ints = doNetherlandsflags(arr, 0, arr.length - 1);
         for (int i = 0; i < ints.length; i++) {
-            System.out.print(ints[i]+",");
+            System.out.print(ints[i] + ",");
         }
     }
 
