@@ -1,7 +1,5 @@
 package Tree.TrieTree;
 
-import List.Node;
-
 /**
  * @ClassName TrieTree_Code1
  * @Description Ç°×ºÊ÷

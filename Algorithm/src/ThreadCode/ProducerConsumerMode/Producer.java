@@ -1,4 +1,4 @@
-package ProducerConsumerMode;
+package ThreadCode.ProducerConsumerMode;
 
 import java.util.Queue;
 
