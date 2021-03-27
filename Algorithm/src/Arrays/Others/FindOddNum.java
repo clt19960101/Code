@@ -25,7 +25,7 @@ public class FindOddNum {
         //   i:1010
         //  ~i:0101
         //~i+1:0110
-        // i&((~i)+1:0010
+        // i&((~i)+1):0010
         System.out.println(i & ((~i) + 1));
 
     }
