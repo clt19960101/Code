@@ -1,5 +1,10 @@
 package LeetCode;
 
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @ClassName 计算桶容量
  * @Description TODO
@@ -8,8 +13,9 @@ package LeetCode;
  * @Version V1.0
  */
 
-public class 计算桶容量 {
+public class 计算桶最大容量 {
     public static void main(String[] args) {
+        Deque<Integer> stack = new LinkedList<Integer>();
         int[] arr = new int[]{1, 4, 2, 3, 3};
         System.out.println(maxArea(arr));
     }
