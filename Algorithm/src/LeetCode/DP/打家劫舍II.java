@@ -1,4 +1,4 @@
-package LeetCode.AC;
+package LeetCode.DP;
 
 /**
  * @ClassName ¥Úº“ΩŸ…·II

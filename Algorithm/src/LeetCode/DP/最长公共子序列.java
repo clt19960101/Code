@@ -1,4 +1,4 @@
-package LeetCode.AC;
+package LeetCode.DP;
 
 /**
  * @ClassName 最长公共子序列
