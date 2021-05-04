@@ -21,9 +21,9 @@ public class QuickSort {
             return;
         }
         //快排1.0版本 每次只搞定一个数
-//        doQuickSort1(arr, 0, arr.length - 1);
+        doQuickSort1(arr, 0, arr.length - 1);
         //快排2.0版本 每次搞定等于num的数
-//        doQuickSort2(arr, 0, arr.length - 1);
+        doQuickSort2(arr, 0, arr.length - 1);
         //快排3.0版本 时间复杂度：O(N*logN) 空间复杂度：好情况O(logN)  坏情况O(N)
         //随机选一个数
         doQuickSort3(arr, 0, arr.length - 1);
