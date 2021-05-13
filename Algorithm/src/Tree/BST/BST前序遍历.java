@@ -29,4 +29,8 @@ public class BST前序遍历 {
         preOrder(root.left,res);
         preOrder(root.right,res);
     }
+//    //迭代实现
+//    public List<Integer> preorderTraversal_diedai(TreeNode root) {
+//
+//    }
 }

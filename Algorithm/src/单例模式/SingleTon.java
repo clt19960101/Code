@@ -10,7 +10,7 @@ package 单例模式;
 
 public class SingleTon {
     //volatile 防止指令重排序
-    private volatile static SingleTon singleTon;
+    private  static volatile  SingleTon singleTon;
 
     //私有的构造方法
     private SingleTon(){

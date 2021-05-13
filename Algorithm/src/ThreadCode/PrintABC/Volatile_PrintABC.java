@@ -8,7 +8,7 @@ package ThreadCode.PrintABC;
  * @Version V1.0
  */
 
-public class Volatile_PrintABC extends Thread {
+public class  Volatile_PrintABC extends Thread {
     private volatile static int state = 0;
     private static String str = "ABC";
     private int index;
