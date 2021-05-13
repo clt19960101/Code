@@ -31,7 +31,7 @@ public class Consumer extends Thread {
                     }
                 }
                 int poll = (int) sharedQueue.poll();
-                System.out.println("进行消费：" + poll);
+                System.out.println("进行消费：" + poll+",当前库存:"+sharedQueue.size());
                 sharedQueue.notify();
             }
         }

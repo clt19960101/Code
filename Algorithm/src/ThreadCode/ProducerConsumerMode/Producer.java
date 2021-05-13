@@ -22,7 +22,7 @@ public class Producer extends Thread {
 
     @Override
     public void run() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             synchronized (sharedQueue) {
                 while (sharedQueue.size() >= MAX_QUEUE_SIZE) {
                     System.out.println("队列满了，等待消费");
@@ -33,7 +33,7 @@ public class Producer extends Thread {
                     }
                 }
                 sharedQueue.add(i);
-                System.out.println("进行生产 : " + i);
+                System.out.println("进行生产,当前库存:"+sharedQueue.size());
                 sharedQueue.notify();
             }
         }
