@@ -1,6 +1,7 @@
 package ThreadCode.ProducerConsumerMode;
 
 import java.util.Queue;
+import java.util.Random;
 
 /**
  * @ClassName Producer
@@ -10,21 +11,28 @@ import java.util.Queue;
  * @Version V1.0
  */
 
-public class Producer extends Thread {
+public class Producer_waitNotify extends Thread {
+    //缓冲区大小
     private static final int MAX_QUEUE_SIZE = 5;
+    //缓冲区
+    private final Queue<Integer> sharedQueue;
 
-    private final Queue sharedQueue;
-
-    public Producer(Queue sharedQueue) {
+    public Producer_waitNotify(Queue sharedQueue) {
         super();
         this.sharedQueue = sharedQueue;
     }
 
     @Override
     public void run() {
-        for (int i = 0; i < 10; i++) {
+        while (true) {
             synchronized (sharedQueue) {
-                while (sharedQueue.size() >= MAX_QUEUE_SIZE) {
+                if (sharedQueue.size() < MAX_QUEUE_SIZE) {
+                    int anInt = new Random().nextInt(100);
+                    sharedQueue.offer(anInt);
+                    System.out.println("进行生产,当前库存:" + sharedQueue.size());
+                    sharedQueue.notifyAll();
+
+                } else {
                     System.out.println("队列满了，等待消费");
                     try {
                         sharedQueue.wait();
@@ -32,9 +40,6 @@ public class Producer extends Thread {
                         e.printStackTrace();
                     }
                 }
-                sharedQueue.add(i);
-                System.out.println("进行生产,当前库存:"+sharedQueue.size());
-                sharedQueue.notify();
             }
         }
     }

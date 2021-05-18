@@ -9,7 +9,7 @@ package Arrays.Sort.QuickSort;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 6, 5};
+        int[] arr = new int[]{1, 6, 5, 6, 64, 7, 87, 98};
         doQuickSort(arr, 0, arr.length - 1);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + ",");
@@ -20,10 +20,10 @@ public class QuickSort {
         if (arr == null || arr.length < 2) {
             return;
         }
-        //快排1.0版本 每次只搞定一个数
-        doQuickSort1(arr, 0, arr.length - 1);
-        //快排2.0版本 每次搞定等于num的数
-        doQuickSort2(arr, 0, arr.length - 1);
+        //快排1.0版本 每次只搞定一个数，以最后一个值为划分值 O(N^2)
+//        doQuickSort1(arr, 0, arr.length - 1);
+        //快排2.0版本 每次搞定等于num的数  O(N^2)
+//        doQuickSort2(arr, 0, arr.length - 1);
         //快排3.0版本 时间复杂度：O(N*logN) 空间复杂度：好情况O(logN)  坏情况O(N)
         //随机选一个数
         doQuickSort3(arr, 0, arr.length - 1);
@@ -34,7 +34,7 @@ public class QuickSort {
         if (left >= right) {
             return;
         }
-        //随机选一个数与arr[right]交换
+        //随机选一个数与arr[right]交换 让左右两侧范围差不多
         swap(arr, left + (int) (Math.random() * (right - left + 1)), right);
         int[] rang = partition2(arr, left, right);
         doQuickSort3(arr, left, rang[0] - 1);
@@ -61,9 +61,11 @@ public class QuickSort {
     }
 
     private static int[] partition2(int[] arr, int left, int right) {
+        //没办法划分，返回无效值
         if (right < left) {
             return new int[]{-1, -1};
         }
+        //左边界到右边界只有一个数
         if (left == right) {
             return new int[]{left, right};
         }
@@ -74,14 +76,18 @@ public class QuickSort {
         //大于区
         int more = right;
         while (index < more) {
+            //当arr[i]==arr[right]时,less,more区不变，index++
             if (arr[index] == arr[right]) {
                 index++;
             } else if (arr[index] < arr[right]) {
+
                 swap(arr, index++, ++less);
             } else {
                 swap(arr, index, --more);
             }
         }
+        //left..less  less+1..more-1   more..R-1   R
+        //最后大于区第一个数和right交换
         swap(arr, more, right);
         return new int[]{less + 1, more};
     }
@@ -98,9 +104,11 @@ public class QuickSort {
         //小于等于区
         int isEqual = left - 1;
         while (index < right) {
+            //如果i所指当前数小于等于arr[right],将该数和小于等于区的下一个数交换,小于等于区向右扩
             if (arr[index] <= arr[right]) {
                 swap(arr, index, ++isEqual);
             }
+            //什么都不做,index++
             index++;
         }
         swap(arr, ++isEqual, right);

@@ -11,7 +11,7 @@ import java.util.Map;
  * @Version V1.0
  */
 
-public class LinkedHaskMap4LruCache<K, V> extends LinkedHashMap<K, V> {
+public class LinkedHaskMap4LruCache extends LinkedHashMap<Integer, Integer> {
     //传进来的缓存大小
     private final int CACHE_SIZE;
 
@@ -26,9 +26,19 @@ public class LinkedHaskMap4LruCache<K, V> extends LinkedHashMap<K, V> {
         this.CACHE_SIZE = cacheSize;
     }
 
+    public void put(int key,int value){
+        super.put(key, value);
+    }
+
+    public int get(int key){
+       return super.get(key);
+    }
+
     @Override
-    protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
         // 当 map 中的数据量大于指定的缓存个数的时候，就自动删除最老的数据。
         return size() > CACHE_SIZE;
     }
+
+
 }

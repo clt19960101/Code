@@ -18,17 +18,19 @@ public class HeapSort {
         if (arr == null || arr.length < 2) {
             return;
         }
-        //法一和法二只是把数组调整成大根堆
+        //法一和法二只是把数组调整成大根堆(是数组但不一定是大（小）根堆)
         //方法一：数组变为大根堆的代价：O(N*logN) 一个数一个数的放
-        for (int i = 0; i < arr.length; i++) {
-            heapInert(arr, i);
-        }
+//        for (int i = 0; i < arr.length; i++) {
+//            heapInert(arr, i);
+//        }
         //方法二：数组变为大根堆的代价：O(N)
+        //优化
         for (int i = arr.length - 1; i >= 0; i--) {
             heapify(arr, i, arr.length);
         }
         //排序工作
         int heapSize = arr.length;
+        // 将最大值换到数组最后,heapSize-1,再也不会动最后一个数
         swap(arr, 0, --heapSize);
         //算法时间复杂度O(logN*N)
         while (heapSize > 0) {//O(N)
