@@ -1,4 +1,4 @@
-package newjava8;
+package newjava8.lambda;
 
 @FunctionalInterface
 public interface NumberOperation {

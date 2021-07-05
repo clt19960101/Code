@@ -1,4 +1,4 @@
-package newjava8;
+package newjava8.lambda;
 //只能有一个抽象方法
 @FunctionalInterface
 public interface FunctionalInterfaceTest {

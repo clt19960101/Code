@@ -1,7 +1,6 @@
-package newjava8;
+package newjava8.lambda;
 
 import java.util.*;
-import java.util.concurrent.Callable;
 import java.util.function.Consumer;
 
 /**

@@ -1,4 +1,4 @@
-package newjava8;
+package newjava8.lambda;
 
 /**
  * 声明一个带泛型的函数式接口，泛型类型为<T,R>,T为参数，R为返回值
