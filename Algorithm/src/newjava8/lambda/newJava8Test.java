@@ -1,5 +1,7 @@
 package newjava8.lambda;
 
+import newjava8.Employee;
+
 import java.util.*;
 import java.util.function.Consumer;
 

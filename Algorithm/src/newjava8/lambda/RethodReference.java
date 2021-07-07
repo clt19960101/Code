@@ -1,5 +1,7 @@
 package newjava8.lambda;
 
+import newjava8.Employee;
+
 import java.io.PrintStream;
 import java.util.Comparator;
 import java.util.function.*;
