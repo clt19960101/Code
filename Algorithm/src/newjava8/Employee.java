@@ -54,10 +54,10 @@ public class Employee {
             return false;
         }
         Employee anObj = (Employee) obj;
-        if (anObj.getAge() != this.getAge()||!anObj.getName().equals(this.name)) {
-            return false;
-        } else{
+        if (anObj.getAge() == this.getAge()&&anObj.getName().equals(this.name)) {
             return true;
+        } else{
+            return false;
         }
     }
 

@@ -1,10 +1,15 @@
 package newjava8.streamAPI;
 
 
+import javafx.concurrent.Task;
 import newjava8.Employee;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.stream.Stream;
 
 /**
@@ -20,11 +25,20 @@ import java.util.stream.Stream;
  */
 
 public class StreamAPI {
+    static List<Employee> list = Arrays.asList(
+            new Employee(10, "张三"),
+            new Employee(10, "张三"),
+            new Employee(10, "张三"),
+            new Employee(12, "张五"),
+            new Employee(13, "张一"),
+            new Employee(14, "张九"),
+            new Employee(9, "张七")
+    );
+
     public static void main(String[] args) {
-        test();
-        test1();
+        testMap1();
     }
-    //创建Stream
+    //一。创建Stream
     public static void test() {
         String[] strings = {"Test", "Stream", "API"};
         List<String> list = Arrays.asList(strings);
@@ -42,7 +56,43 @@ public class StreamAPI {
         Stream.generate(() -> Math.random()).limit(10).forEach(System.out::println);
 
     }
-    //中间操作：不会执行任何操作
+    //二。中间操作：不会执行任何操作
+    /**
+     * 映射
+     * map--接受lambda，将元素转换称以他形式或提取信息。接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素。
+     * flatMap--接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流。
+     */
+    public static void testMap1() {
+        List<String> strings = Arrays.asList("aaa", "bbbb", "dddd");
+        strings.stream().map((str) -> str.toUpperCase())
+                .forEach(System.out::println);
+
+
+        list.stream().map((Employee::getName)).forEach(System.out::println);
+
+    }
+    public static void testMap2() {
+        //map
+        List<String> strings = Arrays.asList("aaa", "bbbb", "dddd");
+        Stream<Stream<Character>> streamStream = strings.stream().map(StreamAPI::filterStream);
+        streamStream.forEach((sm)->{
+            sm.forEach(System.out::println);
+        });
+
+        //flatMap 将流中的每个值都换成另一个流，然后把所有流连接成一个流。
+        Stream<Character> characterStream = strings.stream().flatMap(StreamAPI::filterStream);
+
+
+    }
+
+    //反例
+    public static Stream<Character> filterStream(String string) {
+        List<Character> list = new ArrayList<>();
+        for (Character character : string.toCharArray()) {
+            list.add(character);
+        }
+        return list.stream();
+    }
 
     /**
      * 筛选与切片
@@ -67,7 +117,7 @@ public class StreamAPI {
         );
         //得到的是一个流，若没有终止操作则不会打印任何结果
         Stream<Employee> stream = list.stream().filter((x)->x.getAge()<12);
-      //终止操作：一次性执行全部内容，即"惰性求值"
+      //三。终止操作：一次性执行全部内容，即"惰性求值"
         stream.forEach(System.out::println);
         System.out.println("====================");
         //limit
@@ -84,6 +134,13 @@ public class StreamAPI {
     }
 
     public static void test2() {
+        ExecutorService executorService = Executors.newCachedThreadPool();
 
+        Task task = new Task() {
+            @Override
+            protected Object call() throws Exception {
+                return null;
+            }
+        };
     }
 }
