@@ -10,16 +10,16 @@ package Arrays.Sort.QuickSort;
 public class QuickSort {
     public static void main(String[] args) {
         int[] arr = new int[]{1, 6, 5, 6, 64, 7, 87, 98};
-        doQuickSort(arr, 0, arr.length - 1);
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        doQuickSort3(arr, 0, arr.length - 1);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + ",");
         }
     }
 
     private static void doQuickSort(int[] arr, int left, int right) {
-        if (arr == null || arr.length < 2) {
-            return;
-        }
         //快排1.0版本 每次只搞定一个数，以最后一个值为划分值 O(N^2)
 //        doQuickSort1(arr, 0, arr.length - 1);
         //快排2.0版本 每次搞定等于num的数  O(N^2)
@@ -34,8 +34,6 @@ public class QuickSort {
         if (left >= right) {
             return;
         }
-        //随机选一个数与arr[right]交换 让左右两侧范围差不多
-        swap(arr, left + (int) (Math.random() * (right - left + 1)), right);
         int[] rang = partition2(arr, left, right);
         doQuickSort3(arr, left, rang[0] - 1);
         doQuickSort3(arr, rang[1] + 1, right);
@@ -69,6 +67,8 @@ public class QuickSort {
         if (left == right) {
             return new int[]{left, right};
         }
+        //随机选一个数与arr[right]交换 让左右两侧范围差不多
+        swap(arr, left + (int) (Math.random() * (right - left + 1)), right);
         //数组索引
         int index = left;
         //小于区
@@ -80,7 +80,6 @@ public class QuickSort {
             if (arr[index] == arr[right]) {
                 index++;
             } else if (arr[index] < arr[right]) {
-
                 swap(arr, index++, ++less);
             } else {
                 swap(arr, index, --more);
